@@ -21,3 +21,6 @@ https://plaid-bandicoot-068.notion.site/36569573ea8a80fbac76ca45e5b64957
 - FAQ navigation link
 
 After deployment, submit https://surrogacybutler.com/sitemap.xml in Google Search Console.
+
+
+V7.6 CTA wording update: replaced administrative “填写咨询表” calls-to-action with warmer, context-specific language such as “开始咨询”, “从这里开始”, “了解适合我的支持”, “和我们聊聊”, and “告诉我们您的情况”.

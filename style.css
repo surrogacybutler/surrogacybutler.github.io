@@ -332,3 +332,7 @@ html[lang="zh-CN"] .section-heading h2,html[lang="zh-CN"] .support h2,html[lang=
   .formly-frame-shell { padding: 8px; border-radius: 20px; }
   .formly-frame-shell iframe { height: 1450px !important; border-radius: 14px; }
 }
+/* V7.5 brand logo */
+.brand-logo{width:48px;height:48px;object-fit:contain;display:block;filter:drop-shadow(0 4px 9px rgba(121,85,60,.10))}
+.contact-card strong{display:block;margin:7px 0 10px;color:var(--ink);font-size:1.2rem}
+@media(max-width:600px){.brand-logo{width:42px;height:42px}}
