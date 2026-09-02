@@ -203,3 +203,36 @@ html[lang="zh-CN"] .section-heading h2,html[lang="zh-CN"] .support h2,html[lang=
   .mobile-float-cta{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));padding:12px 14px 12px 12px;font-size:13px}
 }
 @media(prefers-reduced-motion:reduce){.mobile-float-cta{transition:none}}
+
+/* v6.4 — embedded Notion consultation form */
+.notion-form-section{
+  position:relative;
+  padding:clamp(72px,9vw,132px) 0 clamp(84px,10vw,148px);
+  background:
+    radial-gradient(circle at 14% 12%,rgba(230,91,123,.08),transparent 28%),
+    radial-gradient(circle at 86% 88%,rgba(62,102,129,.08),transparent 30%),
+    #f7f4ef;
+  border-top:1px solid rgba(23,50,77,.08);
+}
+.notion-form-shell{display:grid;grid-template-columns:minmax(260px,.7fr) minmax(0,1.3fr);gap:clamp(36px,6vw,88px);align-items:start}
+.notion-form-intro{position:sticky;top:112px;max-width:520px}
+.notion-form-intro h2{margin:.55rem 0 1rem;font-family:"Noto Serif SC",serif;font-size:clamp(2rem,3.8vw,3.7rem);line-height:1.2;color:#17324d;text-wrap:balance}
+.notion-form-intro p:not(.eyebrow){font-size:1.02rem;line-height:1.9;color:#5d6670}
+.notion-form-intro .text-link{display:inline-flex;margin-top:1.15rem}
+.notion-embed-wrap{position:relative;min-width:0;border:1px solid rgba(23,50,77,.1);border-radius:28px;background:#fff;box-shadow:0 24px 70px rgba(22,42,58,.1);overflow:hidden}
+.notion-embed-wrap::before{content:"";display:block;height:5px;background:linear-gradient(90deg,#e25277,#ef9b61,#e7c34c,#63ab7a,#5099c2,#8e68b5)}
+.notion-embed-wrap iframe{display:block;width:100%;height:min(1100px,78vh);min-height:760px;border:0;background:#fff}
+@media (max-width:900px){
+  .notion-form-shell{grid-template-columns:1fr;gap:28px}
+  .notion-form-intro{position:static;max-width:680px}
+  .notion-form-intro h2{max-width:15em}
+  .notion-embed-wrap{border-radius:22px}
+  .notion-embed-wrap iframe{height:980px;min-height:720px}
+}
+@media (max-width:600px){
+  .notion-form-section{padding:64px 0 88px}
+  .notion-form-intro h2{font-size:clamp(1.85rem,9vw,2.55rem);line-height:1.28}
+  .notion-form-intro p:not(.eyebrow){font-size:.98rem;line-height:1.85}
+  .notion-embed-wrap{margin-inline:-2px;border-radius:18px;box-shadow:0 14px 38px rgba(22,42,58,.09)}
+  .notion-embed-wrap iframe{height:900px;min-height:680px}
+}
