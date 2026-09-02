@@ -336,3 +336,99 @@ html[lang="zh-CN"] .section-heading h2,html[lang="zh-CN"] .support h2,html[lang=
 .brand-logo{width:48px;height:48px;object-fit:contain;display:block;filter:drop-shadow(0 4px 9px rgba(121,85,60,.10))}
 .contact-card strong{display:block;margin:7px 0 10px;color:var(--ink);font-size:1.2rem}
 @media(max-width:600px){.brand-logo{width:42px;height:42px}}
+
+/* V7.7 — reliable header logo + dedicated full-page consultation */
+.brand-logo{
+  width:52px;
+  height:52px;
+  object-fit:contain;
+  display:block;
+  flex:0 0 auto;
+  opacity:1;
+  visibility:visible;
+  filter:drop-shadow(0 4px 10px rgba(121,85,60,.10));
+}
+.brand{min-width:max-content}
+@media(max-width:600px){
+  .brand-logo{width:44px;height:44px}
+  .brand{gap:9px;min-width:0}
+}
+
+.consult-page-body{
+  margin:0;
+  min-height:100vh;
+  min-height:100dvh;
+  overflow:hidden;
+  background:#f8f5ef;
+  color:var(--ink);
+}
+.consult-page-header{
+  height:76px;
+  padding:0 max(18px,calc((100vw - 1180px)/2));
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  background:rgba(248,245,239,.94);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+  position:relative;
+  z-index:5;
+}
+.consult-page-brand{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  text-decoration:none;
+  color:var(--ink);
+  min-width:0;
+}
+.consult-page-brand img{
+  width:50px;
+  height:50px;
+  object-fit:contain;
+  flex:0 0 auto;
+  display:block;
+}
+.consult-page-brand span{display:flex;flex-direction:column;line-height:1.08}
+.consult-page-brand strong{font-size:16px;letter-spacing:.03em}
+.consult-page-brand small{margin-top:4px;font-family:"Playfair Display",serif;font-style:italic;color:#a56b60;font-size:12px}
+.consult-page-back{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:0 17px;
+  border:1px solid rgba(23,50,77,.13);
+  border-radius:999px;
+  background:rgba(255,255,255,.72);
+  color:var(--ink);
+  text-decoration:none;
+  font-weight:700;
+  font-size:13px;
+  transition:transform .22s ease,box-shadow .22s ease,background .22s ease;
+}
+.consult-page-back:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(23,50,77,.09);background:#fff}
+.consult-page-main{
+  height:calc(100vh - 76px);
+  height:calc(100dvh - 76px);
+  width:100%;
+  background:#fff;
+}
+.consult-page-main iframe{
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:100%;
+  border:0;
+  background:#fff;
+}
+@media(max-width:600px){
+  .consult-page-header{height:68px;padding:0 12px;gap:10px}
+  .consult-page-brand img{width:42px;height:42px}
+  .consult-page-brand strong{font-size:14px}
+  .consult-page-brand small{font-size:10px}
+  .consult-page-back{padding:0 12px;min-height:38px;font-size:12px}
+  .consult-page-main{height:calc(100vh - 68px);height:calc(100dvh - 68px)}
+}

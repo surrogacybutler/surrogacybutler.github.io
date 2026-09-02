@@ -24,3 +24,11 @@ After deployment, submit https://surrogacybutler.com/sitemap.xml in Google Searc
 
 
 V7.6 CTA wording update: replaced administrative “填写咨询表” calls-to-action with warmer, context-specific language such as “开始咨询”, “从这里开始”, “了解适合我的支持”, “和我们聊聊”, and “告诉我们您的情况”.
+
+
+## V7.7
+- Header logo moved to root-level `logo.png` and used consistently across pages.
+- Formly consultation form moved to dedicated full-page `consult.html`.
+- Homepage CTAs now link to `consult.html`; the embedded form was removed from the homepage.
+- `consult.html` added to sitemap.
+- Privacy notice updated to reference Formly rather than Notion.
