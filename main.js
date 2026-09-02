@@ -42,3 +42,32 @@ if(contactSection||footer){
   if(footer) ctaObserver.observe(footer);
 }
 updateMobileFloatCta();
+
+
+// V7.3 pointer-reactive details. Desktop fine pointers only; motion preference respected.
+const finePointer=matchMedia('(hover:hover) and (pointer:fine)');
+const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
+if(finePointer.matches && !reducedMotion.matches){
+  const tiltSelectors=['.spotlight-card','.role-card','.why-card','.service-card','.budget-card','.news-card','.faq-item','.consultation-card-main'];
+  qa(tiltSelectors.join(',')).forEach(el=>{
+    el.classList.add('interactive-tilt');
+    el.addEventListener('pointermove',e=>{
+      const r=el.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+      el.style.setProperty('--tilt-x',`${(-y*3.2).toFixed(2)}deg`);
+      el.style.setProperty('--tilt-y',`${(x*4).toFixed(2)}deg`);
+    });
+    el.addEventListener('pointerleave',()=>{
+      el.style.setProperty('--tilt-x','0deg');el.style.setProperty('--tilt-y','0deg');
+    });
+  });
+  const aside=q('.consultation-card-aside');
+  aside?.addEventListener('pointermove',e=>{
+    const r=aside.getBoundingClientRect();
+    const x=((e.clientX-r.left)/r.width-.5)*18;
+    const y=((e.clientY-r.top)/r.height-.5)*18;
+    aside.style.setProperty('--px',`${x.toFixed(1)}px`);
+    aside.style.setProperty('--py',`${y.toFixed(1)}px`);
+  });
+  aside?.addEventListener('pointerleave',()=>{aside.style.setProperty('--px','0px');aside.style.setProperty('--py','0px')});
+}
