@@ -11,3 +11,13 @@ V6.6：移除无法嵌入的 Notion iframe，改为现代咨询 CTA 卡片。
 https://plaid-bandicoot-068.notion.site/36569573ea8a80fbac76ca45e5b64957
 
 直接邮箱：surrogacybutler@gmail.com
+
+## V7 SEO / AEO additions
+- Search-focused Chinese title and meta description
+- Canonical URL + Open Graph metadata
+- Organization, WebSite, and FAQPage JSON-LD
+- Chinese intended-parent FAQ/AEO section
+- robots.txt and sitemap.xml
+- FAQ navigation link
+
+After deployment, submit https://surrogacybutler.com/sitemap.xml in Google Search Console.

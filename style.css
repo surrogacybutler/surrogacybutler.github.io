@@ -262,3 +262,18 @@ html[lang="zh-CN"] .section-heading h2,html[lang="zh-CN"] .support h2,html[lang=
 @media(max-width:900px){.consultation-card-main{grid-template-columns:1fr}.consultation-card-aside{min-height:250px;order:-1}.consultation-card-copy h2{max-width:12em}.consultation-orbit-a{width:190px;height:190px}.consultation-orbit-b{width:270px;height:270px}}
 @media(max-width:600px){.consultation-card-section{padding:72px 0 92px}.consultation-card-main{border-radius:26px}.consultation-card-aside{min-height:210px}.consultation-card-copy{padding:32px 24px 34px}.consultation-card-copy h2{font-size:clamp(2rem,11vw,2.8rem);line-height:1.23;max-width:none}.consultation-card-copy>p:not(.eyebrow){font-size:.98rem;line-height:1.85}.consultation-card-actions{display:grid;grid-template-columns:1fr;margin-top:22px}.consultation-card-actions .button{width:100%;min-height:54px}.consultation-card-note{padding-top:18px;text-align:center}.consultation-mark{width:96px;height:96px;font-size:30px}}
 @media(prefers-reduced-motion:reduce){.consultation-mark,.consultation-orbit{animation:none!important}}
+
+/* V7 SEO/AEO FAQ */
+.faq-section{padding-top:clamp(76px,9vw,132px);padding-bottom:clamp(80px,10vw,140px)}
+.faq-section .wide-heading{max-width:960px;margin-inline:auto;text-align:center}
+.faq-grid{max-width:980px;margin:44px auto 0;display:grid;gap:12px}
+.faq-item{border:1px solid rgba(23,50,77,.13);border-radius:18px;background:rgba(255,255,255,.58);box-shadow:0 12px 38px rgba(23,50,77,.055);overflow:hidden}
+.faq-item summary{list-style:none;cursor:pointer;padding:22px 62px 22px 24px;font-weight:700;color:var(--navy,#17324d);font-size:clamp(16px,1.55vw,19px);position:relative;line-height:1.55}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:after{content:'＋';position:absolute;right:23px;top:20px;font-size:24px;font-weight:400;transition:transform .25s ease}
+.faq-item[open] summary:after{transform:rotate(45deg)}
+.faq-item>div{padding:0 24px 23px;color:var(--text,#425466);line-height:1.85;max-width:900px}
+.faq-item>div p{margin:0}
+.faq-cta{max-width:980px;margin:26px auto 0;padding:24px 26px;border-radius:20px;background:#17324d;color:white;display:flex;align-items:center;justify-content:space-between;gap:22px}
+.faq-cta p{margin:0;font-weight:600}.faq-cta .button{flex:none}
+@media(max-width:700px){.faq-grid{margin-top:30px}.faq-item summary{padding:19px 52px 19px 19px;font-size:16px}.faq-item summary:after{right:18px;top:17px}.faq-item>div{padding:0 19px 20px;font-size:14px}.faq-cta{align-items:stretch;flex-direction:column}.faq-cta .button{width:100%;text-align:center}}
