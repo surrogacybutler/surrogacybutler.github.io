@@ -71,3 +71,70 @@ if(finePointer.matches && !reducedMotion.matches){
   });
   aside?.addEventListener('pointerleave',()=>{aside.style.setProperty('--px','0px');aside.style.setProperty('--py','0px')});
 }
+
+// V7.8 — richer pointer interactions for the homepage.
+if(finePointer.matches && !reducedMotion.matches){
+  // Soft page-wide cursor aura and ambient light bloom.
+  const aura=document.createElement('div');
+  aura.className='cursor-aura';
+  document.body.appendChild(aura);
+  let ax=innerWidth/2, ay=innerHeight/3, tx=ax, ty=ay;
+  const hotSelector='a,button,summary,.spotlight-card,.path-card,.support-card,.budget-card,.news-card,.process-step,.stakeholder-grid span,.hero-photo,.editorial-image,.service-photo,.roadmap-photo,.inclusive-visual-image';
+  addEventListener('pointermove',e=>{
+    tx=e.clientX;ty=e.clientY;
+    document.body.style.setProperty('--cursor-x',`${e.clientX}px`);
+    document.body.style.setProperty('--cursor-y',`${e.clientY}px`);
+    aura.classList.add('is-visible');
+    aura.classList.toggle('is-hot',!!e.target.closest(hotSelector));
+  },{passive:true});
+  addEventListener('pointerleave',()=>aura.classList.remove('is-visible'));
+  (function animateAura(){ax+=(tx-ax)*.18;ay+=(ty-ay)*.18;aura.style.transform=`translate(${ax-17}px,${ay-17}px)`;requestAnimationFrame(animateAura)})();
+
+  // Magnetic primary actions: restrained enough to remain readable.
+  qa('.button.primary,.nav-cta').forEach(el=>{
+    el.classList.add('magnetic');
+    el.addEventListener('pointermove',e=>{
+      const r=el.getBoundingClientRect();
+      const x=(e.clientX-(r.left+r.width/2))*.10;
+      const y=(e.clientY-(r.top+r.height/2))*.12;
+      el.style.transform=`translate(${x.toFixed(1)}px,${y.toFixed(1)}px)`;
+    });
+    el.addEventListener('pointerleave',()=>el.style.transform='translate(0,0)');
+  });
+
+  // Hero image and floating cards gain layered parallax, without shaking.
+  const heroMedia=q('.hero-photo');
+  if(heroMedia){
+    const heroImg=q('img',heroMedia), cards=qa('.floating-card',heroMedia);
+    heroMedia.addEventListener('pointermove',e=>{
+      const r=heroMedia.getBoundingClientRect();
+      const nx=(e.clientX-r.left)/r.width-.5, ny=(e.clientY-r.top)/r.height-.5;
+      if(heroImg) heroImg.style.transform=`scale(1.035) translate(${(-nx*9).toFixed(1)}px,${(-ny*7).toFixed(1)}px)`;
+      cards.forEach((card,i)=>card.style.transform=`translate(${(nx*(i?14:-12)).toFixed(1)}px,${(ny*(i?10:-8)).toFixed(1)}px)`);
+    });
+    heroMedia.addEventListener('pointerleave',()=>{
+      if(heroImg) heroImg.style.transform='';
+      cards.forEach(card=>card.style.transform='');
+    });
+  }
+
+  // Cursor-position light on stakeholder chips.
+  qa('.stakeholder-grid span').forEach(chip=>chip.addEventListener('pointermove',e=>{
+    const r=chip.getBoundingClientRect();
+    chip.style.setProperty('--chip-x',`${e.clientX-r.left}px`);
+    chip.style.setProperty('--chip-y',`${e.clientY-r.top}px`);
+  }));
+}
+
+// Keep the desktop navigation synchronized with the section currently being read.
+const navMap=new Map();
+qa('.desktop-nav a[href^="#"]').forEach(link=>{const el=q(link.getAttribute('href'));if(el)navMap.set(el,link)});
+if(navMap.size){
+  const navObserver=new IntersectionObserver(entries=>{
+    const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+    if(!visible)return;
+    navMap.forEach(link=>link.classList.remove('is-active'));
+    navMap.get(visible.target)?.classList.add('is-active');
+  },{rootMargin:'-24% 0px -60% 0px',threshold:[0,.12,.3,.55]});
+  navMap.forEach((_,section)=>navObserver.observe(section));
+}

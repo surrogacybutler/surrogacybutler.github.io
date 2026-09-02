@@ -32,3 +32,6 @@ V7.6 CTA wording update: replaced administrative “填写咨询表” calls-to-
 - Homepage CTAs now link to `consult.html`; the embedded form was removed from the homepage.
 - `consult.html` added to sitemap.
 - Privacy notice updated to reference Formly rather than Notion.
+
+## V7.8 homepage interaction pass
+Adds a restrained desktop cursor aura, ambient pointer light, magnetic CTA buttons, layered hero parallax, active navigation highlighting, interactive stakeholder chips, image sheen, process-card motion, and subtle ambient framing. Touch devices and `prefers-reduced-motion` remain protected from desktop pointer effects.
