@@ -236,3 +236,29 @@ html[lang="zh-CN"] .section-heading h2,html[lang="zh-CN"] .support h2,html[lang=
   .notion-embed-wrap{margin-inline:-2px;border-radius:18px;box-shadow:0 14px 38px rgba(22,42,58,.09)}
   .notion-embed-wrap iframe{height:900px;min-height:680px}
 }
+
+/* v6.6 — consultation CTA card replacing non-embeddable Notion iframe */
+.notion-form-section{display:none!important}
+.consultation-card-section{padding:clamp(84px,10vw,132px) 0;background:linear-gradient(180deg,#fbf8f4 0%,#f3f5f7 100%);position:relative;overflow:hidden}
+.consultation-card-section::before{content:"";position:absolute;width:520px;height:520px;border-radius:50%;right:-180px;top:-250px;background:radial-gradient(circle,rgba(82,122,160,.14),rgba(82,122,160,0) 68%);pointer-events:none}
+.consultation-card-wrap{max-width:1120px}
+.consultation-card-main{position:relative;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,.75fr);min-height:420px;border:1px solid rgba(23,50,77,.1);border-radius:36px;overflow:hidden;background:rgba(255,255,255,.88);box-shadow:0 34px 90px rgba(23,50,77,.12)}
+.consultation-card-main::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:linear-gradient(90deg,#e76579 0%,#eda25b 20%,#e6c75b 40%,#65b184 60%,#5a91d4 80%,#8065b8 100%);opacity:.82}
+.consultation-card-copy{padding:clamp(38px,6vw,72px);display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.consultation-card-copy h2{margin:.5rem 0 1rem;font-family:"Noto Serif SC",serif;font-size:clamp(2.35rem,4.6vw,4.7rem);line-height:1.16;letter-spacing:-.03em;color:var(--ink);max-width:8.6em;text-wrap:balance}
+.consultation-card-copy>p:not(.eyebrow){max-width:680px;font-size:1.06rem;line-height:1.95;color:#5e6f7d}
+.consultation-card-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.consultation-card-actions .button{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;text-decoration:none;min-height:52px}
+.consultation-primary span{margin-left:6px;transition:transform .25s ease}.consultation-primary:hover span{transform:translate(3px,-3px)}
+.consultation-secondary{background:rgba(246,248,250,.94)}
+.consultation-card-aside{position:relative;min-height:100%;background:linear-gradient(145deg,#17324d 0%,#213f59 56%,#2b536f 100%);display:grid;place-items:center;overflow:hidden}
+.consultation-card-aside::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.13),transparent 32%),radial-gradient(circle at 70% 72%,rgba(217,170,161,.15),transparent 28%)}
+.consultation-mark{position:relative;z-index:3;width:118px;height:118px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.09);backdrop-filter:blur(10px);font:600 36px "Playfair Display",serif;letter-spacing:.08em;color:#fff;box-shadow:0 24px 70px rgba(0,0,0,.2);animation:consultationPulse 4.8s ease-in-out infinite}
+.consultation-orbit{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.16);animation:consultationSpin 18s linear infinite}.consultation-orbit-a{width:240px;height:240px}.consultation-orbit-b{width:340px;height:340px;border-color:rgba(222,179,168,.19);animation-duration:28s;animation-direction:reverse}
+.consultation-dot{position:absolute;width:9px;height:9px;border-radius:50%;background:#dcb2a7;box-shadow:0 0 0 8px rgba(220,178,167,.09),0 0 22px rgba(220,178,167,.4)}.consultation-dot.dot-a{top:22%;right:22%}.consultation-dot.dot-b{left:18%;bottom:27%;background:#8bb4d2}.consultation-dot.dot-c{right:30%;bottom:17%;background:#e2c77c}
+.consultation-card-note{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding:22px 20px 0;color:#6d7881;font-size:.92rem}.consultation-card-note a{color:var(--ink);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(23,50,77,.25)}
+@keyframes consultationSpin{to{transform:rotate(360deg)}}
+@keyframes consultationPulse{50%{transform:scale(1.045);box-shadow:0 28px 90px rgba(0,0,0,.27)}}
+@media(max-width:900px){.consultation-card-main{grid-template-columns:1fr}.consultation-card-aside{min-height:250px;order:-1}.consultation-card-copy h2{max-width:12em}.consultation-orbit-a{width:190px;height:190px}.consultation-orbit-b{width:270px;height:270px}}
+@media(max-width:600px){.consultation-card-section{padding:72px 0 92px}.consultation-card-main{border-radius:26px}.consultation-card-aside{min-height:210px}.consultation-card-copy{padding:32px 24px 34px}.consultation-card-copy h2{font-size:clamp(2rem,11vw,2.8rem);line-height:1.23;max-width:none}.consultation-card-copy>p:not(.eyebrow){font-size:.98rem;line-height:1.85}.consultation-card-actions{display:grid;grid-template-columns:1fr;margin-top:22px}.consultation-card-actions .button{width:100%;min-height:54px}.consultation-card-note{padding-top:18px;text-align:center}.consultation-mark{width:96px;height:96px;font-size:30px}}
+@media(prefers-reduced-motion:reduce){.consultation-mark,.consultation-orbit{animation:none!important}}

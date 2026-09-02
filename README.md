@@ -1,12 +1,13 @@
-# 美宝管家 V6.3
+# 美宝管家 · GitHub Pages 静态网站
 
-Static GitHub Pages-ready Chinese website.
+V6.6：移除无法嵌入的 Notion iframe，改为现代咨询 CTA 卡片。
 
-V6.3 adds a mobile-only floating email consultation CTA that appears after the visitor begins scrolling and automatically hides when the Contact section or footer enters view. It also adds mobile safe-area spacing for modern iPhones and improves mobile CTA touch targets.
+- `index.html`：主页
+- `style.css`：样式
+- `main.js`：交互
+- `images/`：图片
 
-Contact: surrogacybutler@gmail.com
+咨询表按钮打开：
+https://plaid-bandicoot-068.notion.site/36569573ea8a80fbac76ca45e5b64957
 
-## V6.4 update
-- All reader-facing Chinese second-person wording uses “您”.
-- Added a responsive embedded Notion consultation form near the bottom of the page.
-- Includes a direct new-window fallback link to the public Notion form.
+直接邮箱：surrogacybutler@gmail.com
