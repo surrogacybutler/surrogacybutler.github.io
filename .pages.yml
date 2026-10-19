@@ -11,15 +11,15 @@ content:
     type: collection
     path: src/content/news
     format: yaml-frontmatter
-    filename: "{slug}.md"
+    filename: "{fields.slug}.md"
     view:
       primary: title
       fields: [title, date, sourceName, jurisdiction, legalStatus, published]
-      sort: [date, title]
-      search: [title, summary, sourceName, jurisdiction]
-      default:
-        sort: date
-        order: desc
+    sort: [date, title]
+    search: [title, summary, sourceName, jurisdiction]
+    default:
+      sort: date
+      order: desc
     operations:
       create: true
       rename: false
@@ -125,9 +125,9 @@ content:
         label: 补充来源
         type: object
         list:
-          collapsible:
-            collapsed: true
-            summary: "{title}"
+          collapsible: true
+          collapsed: true
+          summary: "{title}"
         fields:
           - name: title
             label: 资料标题
