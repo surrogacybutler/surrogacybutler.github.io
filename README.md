@@ -28,10 +28,10 @@ V7.6 CTA wording update: replaced administrative “填写咨询表” calls-to-
 
 ## V7.7
 - Header logo moved to root-level `logo.png` and used consistently across pages.
-- Formly consultation form moved to dedicated full-page `consult.html`.
+- Consultation app embedded on dedicated full-page `consult.html` using Google Apps Script.
 - Homepage CTAs now link to `consult.html`; the embedded form was removed from the homepage.
 - `consult.html` added to sitemap.
-- Privacy notice updated to reference Formly rather than Notion.
+- Privacy notice updated to describe the Google Apps Script consultation app.
 
 ## V7.8 homepage interaction pass
 Adds a restrained desktop cursor aura, ambient pointer light, magnetic CTA buttons, layered hero parallax, active navigation highlighting, interactive stakeholder chips, image sheen, process-card motion, and subtle ambient framing. Touch devices and `prefers-reduced-motion` remain protected from desktop pointer effects.
