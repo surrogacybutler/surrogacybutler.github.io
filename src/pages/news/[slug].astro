@@ -1,0 +1,62 @@
+---
+import { getCollection, render } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+export async function getStaticPaths() {
+  const publishedEntries = (await getCollection('news')).filter((entry) => entry.data.published);
+  return publishedEntries.map((entry) => ({ params: { slug: entry.data.slug }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+const site = Astro.site ?? new URL('https://www.surrogacybutler.com/');
+const description = d.seoDescription ?? d.summary;
+const sourceList = [{ title: d.title, publisher: d.sourceName, url: d.sourceURL, datePublished: d.sourceDate?.toISOString() }, ...d.sources.map(s => ({ title: s.title, publisher: s.publisher, url: s.url, datePublished: s.publishedDate?.toISOString() }))];
+const articleSchema = {
+  '@type': 'Article',
+  '@id': new URL(`/news/${d.slug}/#article`, site).href,
+  headline: d.title,
+  description,
+  datePublished: d.date.toISOString(),
+  dateModified: d.reviewedDate.toISOString(),
+  inLanguage: 'zh-CN',
+  mainEntityOfPage: new URL(`/news/${d.slug}/`, site).href,
+  author: { '@type': 'Organization', name: '美宝管家编辑部' },
+  publisher: { '@id': 'https://www.surrogacybutler.com/#organization' },
+  about: [d.category, d.jurisdiction],
+  citation: sourceList.map(s => s.url),
+};
+---
+<SiteLayout title={d.seoTitle ?? `${d.title} | 美宝管家`} description={description} path={`/news/${d.slug}/`} schema={articleSchema}>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <SiteHeader />
+  <main id="main-content" class="article-page section-shell">
+    <nav class="breadcrumbs" aria-label="面包屑导航"><a href="/">首页</a><span aria-hidden="true">/</span><a href="/news/">近期报道与政策更新</a><span aria-hidden="true">/</span><span aria-current="page">本文</span></nav>
+    <article>
+      <header class="article-header">
+        <p class="eyebrow">{d.category} · {d.jurisdiction}</p>
+        <h1>{d.title}</h1>
+        <p class="article-deck">{d.summary}</p>
+        <dl class="article-facts">
+          <div><dt>原始来源</dt><dd><a href={d.sourceURL} target="_blank" rel="noopener noreferrer">{d.sourceName} ↗</a></dd></div>
+          <div><dt>来源日期</dt><dd><time datetime={d.sourceDate?.toISOString()}>{d.sourceDate ? d.sourceDate.toLocaleDateString('zh-CN', { timeZone: 'UTC' }) : '详见来源'}</time></dd></div>
+          <div><dt>本站整理</dt><dd><time datetime={d.date.toISOString()}>{d.date.toLocaleDateString('zh-CN', { timeZone: 'UTC' })}</time></dd></div>
+          <div><dt>最近核对</dt><dd><time datetime={d.reviewedDate.toISOString()}>{d.reviewedDate.toLocaleDateString('zh-CN', { timeZone: 'UTC' })}</time></dd></div>
+          <div><dt>状态说明</dt><dd>{d.legalStatus}</dd></div>
+        </dl>
+      </header>
+      <aside class="key-takeaway"><strong>给读者的提示</strong><p>{d.keyTakeaway}</p></aside>
+      <div class="article-content"><Content /></div>
+      <section class="source-list" aria-labelledby="sources-title">
+        <h2 id="sources-title">来源与延伸阅读</h2>
+        <ol>
+          <li><a href={d.sourceURL} target="_blank" rel="noopener noreferrer">{d.title} — {d.sourceName} ↗</a>{d.sourceDate && <span>（{d.sourceDate.toLocaleDateString('zh-CN', { timeZone: 'UTC' })}）</span>}</li>
+          {d.sources.map((source) => <li><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title} — {source.publisher} ↗</a>{source.publishedDate && <span>（{source.publishedDate.toLocaleDateString('zh-CN', { timeZone: 'UTC' })}）</span>}</li>)}
+        </ol>
+      </section>
+      <p class="editorial-note">本文为一般信息整理，不构成医疗、法律、保险或财务建议。法律及政策变化可能快于网站更新；请核对来源和现行官方文件，并向相关专业人士确认。</p>
+      <a class="article-back" href="/news/">← 返回全部报道与政策更新</a>
+    </article>
+  </main>
+  <footer class="site-footer"><div class="footer-shell"><div class="footer-brand-block"><strong>美宝管家 <span>Your Surrogacy Butler</span></strong><p>美国辅助生殖与妊娠载体旅程咨询、协调与陪伴。</p></div><div class="footer-contact-block"><small>联系邮箱</small><a href="mailto:surrogacybutler@gmail.com">surrogacybutler@gmail.com</a></div><nav class="footer-links" aria-label="页脚导航"><a href="/">首页</a><a href="/news/">近期时事</a><a href="/editorial-policy/">资料来源与更新原则</a><a href="/privacy.html">隐私声明</a></nav><p class="footer-disclaimer">本站内容仅作一般信息与经验分享，不构成医疗、法律、保险或财务建议。</p></div></footer>
+</SiteLayout>

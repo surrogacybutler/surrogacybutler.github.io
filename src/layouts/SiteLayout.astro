@@ -1,0 +1,63 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+  noindex?: boolean;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+}
+const { title, description, path, image = '/images/lgbtq-hands.jpg', noindex = false, schema } = Astro.props;
+const canonical = new URL(path.replace(/^\//, ''), Astro.site ?? 'https://www.surrogacybutler.com/').href;
+const graph = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+const org = {
+  '@type': 'Organization',
+  '@id': 'https://www.surrogacybutler.com/#organization',
+  name: '美宝管家',
+  alternateName: 'Your Surrogacy Butler',
+  url: 'https://www.surrogacybutler.com/',
+  email: 'surrogacybutler@gmail.com',
+  description: '面向准父母的美国辅助生殖旅程咨询、翻译与协调支持，特别关注多元家庭与跨境家庭。',
+};
+const website = {
+  '@type': 'WebSite',
+  '@id': 'https://www.surrogacybutler.com/#website',
+  url: 'https://www.surrogacybutler.com/',
+  name: '美宝管家 Your Surrogacy Butler',
+  inLanguage: 'zh-CN',
+  publisher: { '@id': 'https://www.surrogacybutler.com/#organization' },
+};
+const jsonLd = [org, website, ...graph];
+---
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex,follow' : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'} />
+    <meta name="author" content="美宝管家编辑部" />
+    <meta name="theme-color" content="#17324d" />
+    <link rel="canonical" href={canonical} />
+    <link rel="sitemap" href="/sitemap.xml" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <meta property="og:type" content={path.startsWith('/news/') ? 'article' : 'website'} />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:site_name" content="美宝管家 Your Surrogacy Butler" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(image, Astro.site ?? 'https://www.surrogacybutler.com/').href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+    <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@graph': jsonLd })}></script>
+  </head>
+  <body>
+    <slot />
+    <script src="/main.js" defer></script>
+  </body>
+</html>

@@ -4,7 +4,7 @@ const header=q('.site-header');
 const timeline=q('.timeline');
 function onScroll(){
   const max=document.documentElement.scrollHeight-innerHeight;
-  progress.style.width=(max>0?(scrollY/max)*100:0)+'%';
+  if(progress) progress.style.width=(max>0?(scrollY/max)*100:0)+'%';
   header.classList.toggle('scrolled',scrollY>20);
 }
 onScroll();addEventListener('scroll',onScroll,{passive:true});

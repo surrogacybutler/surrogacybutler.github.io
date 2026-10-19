@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+const entries = (await getCollection('news')).filter((entry) => entry.data.published).sort((a,b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<SiteLayout title="近期报道与政策更新 | 美宝管家" description="按发布日期、来源和法律状态整理美国辅助生殖与妊娠载体领域的新闻报道、专业政策资料与州级变化。" path="/news/">
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <SiteHeader />
+  <main id="main-content" class="editorial-page section-shell">
+    <p class="eyebrow">NEWS · POLICY · SOURCES</p>
+    <h1>近期报道与政策更新</h1>
+    <p class="editorial-intro">我们将新闻报道、专业组织资料与法律状态分开标注。每篇整理都提供原文链接、发布日期和最近核对日期。提案、讨论或诉讼报道不等于已生效的普遍规则。</p>
+    <div class="news-grid editorial-news-grid">
+      {entries.map((entry) => <a class="news-card reveal" href={`/news/${entry.data.slug}/`}>
+        <small>{entry.data.sourceName} · {entry.data.date.toISOString().slice(0,10)}</small>
+        <h2>{entry.data.title}</h2>
+        <p>{entry.data.summary}</p>
+        <span>{entry.data.jurisdiction} · {entry.data.legalStatus}</span>
+      </a>)}
+    </div>
+    <p class="editorial-note">政策与法律可能变化。每篇内容的“最近核对”日期只表示本页整理时再次检查了列出的来源，不代表持续实时监测。</p>
+  </main>
+  <footer class="site-footer"><div class="footer-shell"><div class="footer-brand-block"><strong>美宝管家 <span>Your Surrogacy Butler</span></strong><p>美国辅助生殖与妊娠载体旅程咨询、协调与陪伴。</p></div><div class="footer-contact-block"><small>联系邮箱</small><a href="mailto:surrogacybutler@gmail.com">surrogacybutler@gmail.com</a></div><nav class="footer-links" aria-label="页脚导航"><a href="/">首页</a><a href="/news/">近期时事</a><a href="/editorial-policy/">资料来源与更新原则</a><a href="/privacy.html">隐私声明</a></nav><p class="footer-disclaimer">本站内容仅作一般信息与经验分享，不构成医疗、法律、保险或财务建议。</p></div></footer>
+</SiteLayout>
