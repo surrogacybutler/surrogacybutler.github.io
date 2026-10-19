@@ -1,0 +1,153 @@
+media:
+  input: public/images/uploads
+  output: /images/uploads
+  extensions: [jpg, jpeg, png, webp, avif]
+  categories: [image]
+  rename: safe
+
+content:
+  - name: news
+    label: 报道与政策更新
+    type: collection
+    path: src/content/news
+    format: yaml-frontmatter
+    filename: "{slug}.md"
+    view:
+      primary: title
+      fields: [title, date, sourceName, jurisdiction, legalStatus, published]
+      sort: [date, title]
+      search: [title, summary, sourceName, jurisdiction]
+      default:
+        sort: date
+        order: desc
+    operations:
+      create: true
+      rename: false
+      delete: true
+    fields:
+      - name: slug
+        label: 文章固定链接（英文）
+        type: string
+        required: true
+        description: 使用小写英文字母、数字和连字符；发布后请保持不变。
+        pattern: "^[a-z0-9-]+$"
+      - name: title
+        label: 标题
+        type: string
+        required: true
+        options:
+          maxlength: 140
+      - name: date
+        label: 本站整理日期
+        type: date
+        required: true
+      - name: sourceName
+        label: 原始来源
+        type: string
+        required: true
+      - name: sourceType
+        label: 来源类型
+        type: select
+        required: true
+        options:
+          values:
+            - 新闻报道
+            - 专业政策资料
+            - 政府资料
+      - name: sourceDate
+        label: 原始来源发布日期
+        type: date
+      - name: sourceURL
+        label: 原文链接
+        type: string
+        required: true
+      - name: sourceByline
+        label: 来源署名
+        type: string
+      - name: category
+        label: 内容类别
+        type: select
+        required: true
+        options:
+          values:
+            - 政策变化
+            - 法律与亲权
+            - 行业动态
+            - 专业指引
+      - name: jurisdiction
+        label: 适用地区
+        type: string
+        required: true
+      - name: legalStatus
+        label: 状态说明
+        type: select
+        required: true
+        description: 请区分已生效法律、待生效法律、提案、个案报道和专业组织分析。
+        options:
+          values:
+            - 已生效
+            - 已签署待生效
+            - 提案或讨论中
+            - 个案报道
+            - 专业组织分析
+            - 一般行业信息
+      - name: summary
+        label: 列表摘要
+        type: text
+        required: true
+        options:
+          maxlength: 320
+      - name: keyTakeaway
+        label: 对读者的提示
+        type: text
+        required: true
+        options:
+          maxlength: 400
+      - name: reviewedDate
+        label: 最近核对日期
+        type: date
+        required: true
+      - name: published
+        label: 发布
+        type: boolean
+        required: true
+      - name: seoTitle
+        label: SEO 标题（可选）
+        type: string
+        options:
+          maxlength: 70
+      - name: seoDescription
+        label: SEO 摘要（可选）
+        type: text
+        options:
+          maxlength: 180
+      - name: sources
+        label: 补充来源
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: 资料标题
+            type: string
+            required: true
+          - name: publisher
+            label: 发布机构
+            type: string
+            required: true
+          - name: url
+            label: 资料链接
+            type: string
+            required: true
+          - name: publishedDate
+            label: 发布日期
+            type: date
+      - name: body
+        label: 整理说明
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          media: false
