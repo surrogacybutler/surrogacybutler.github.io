@@ -11,6 +11,19 @@ const { Content } = await render(entry);
 const d = entry.data;
 const site = Astro.site ?? new URL('https://www.surrogacybutler.com/');
 const description = d.seoDescription ?? d.summary;
+const ogImages: Record<string, string> = {
+  'us-executive-order-14418-surrogacy-citizenship': '/images/baby-shoes.jpg',
+  'trump-v-barbara-birthright-citizenship': '/images/ultrasound-embrace.jpg',
+  'new-york-gestating-parent-bill': '/images/lgbtq-buttons.jpg',
+  'new-jersey-a5589-parentage-presumption': '/images/ultrasound-hands-bw.jpg',
+  'new-jersey-gc-residency-bills': '/images/fertility-calendar.jpg',
+  'asrm-gestational-carrier-policy': '/images/pregnancy-test-phone.jpg',
+  'texas-surrogacy-court-dispute': '/images/lgbtq-hands.jpg',
+  'us-federal-foreign-ip-surrogacy-bills': '/images/pregnancy-test-phone.jpg',
+  'florida-foreign-ip-laws': '/images/ultrasound-hands-bw.jpg',
+  'texas-foreign-intended-parents-debate': '/images/fertility-calendar.jpg',
+};
+const ogImage = ogImages[d.slug] ?? '/images/lgbtq-hands.jpg';
 const sourceList = [{ title: d.title, publisher: d.sourceName, url: d.sourceURL, datePublished: d.sourceDate?.toISOString() }, ...d.sources.map(s => ({ title: s.title, publisher: s.publisher, url: s.url, datePublished: s.publishedDate?.toISOString() }))];
 const articleSchema = {
   '@type': 'Article',
@@ -21,13 +34,14 @@ const articleSchema = {
   dateModified: d.reviewedDate.toISOString(),
   inLanguage: 'zh-CN',
   mainEntityOfPage: new URL(`/news/${d.slug}/`, site).href,
+  image: new URL(ogImage, site).href,
   author: { '@type': 'Organization', name: '美宝管家编辑部' },
   publisher: { '@id': 'https://www.surrogacybutler.com/#organization' },
   about: [d.category, d.jurisdiction],
   citation: sourceList.map(s => s.url),
 };
 ---
-<SiteLayout title={d.seoTitle ?? `${d.title} | 美宝管家`} description={description} path={`/news/${d.slug}/`} schema={articleSchema}>
+<SiteLayout title={d.seoTitle ?? `${d.title} | 美宝管家`} description={description} path={`/news/${d.slug}/`} image={ogImage} schema={articleSchema}>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
   <SiteHeader />
   <main id="main-content" class="article-page section-shell">
