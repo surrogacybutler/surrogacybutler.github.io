@@ -4,12 +4,21 @@
 
 ## 主要页面
 - [首页](https://www.surrogacybutler.com/): 服务定位、常见流程、费用类别、常见问题。
+- [实用指南](https://www.surrogacybutler.com/guides/): 长期有效的主题指南：流程、费用、各州法律、跨境证件、多元家庭路径与团队选择。
 - [近期报道与政策更新](https://www.surrogacybutler.com/news/): 有来源、日期、适用地区和状态标注的新闻与专业资料摘要。
 - [资料来源与更新原则](https://www.surrogacybutler.com/editorial-policy/): 来源核对、日期与更正方式。
 - [隐私声明](https://www.surrogacybutler.com/privacy.html): 网站与外部咨询服务的数据说明。
 - [咨询入口](https://www.surrogacybutler.com/consult.html): 外部咨询应用。
 - [RSS 订阅](https://www.surrogacybutler.com/feed.xml): 报道与政策更新的 RSS feed。
-- [全文版（llms-full.txt）](https://www.surrogacybutler.com/llms-full.txt): 本站主要内容与全部政策文章的纯文本全文。
+- [全文版（llms-full.txt）](https://www.surrogacybutler.com/llms-full.txt): 本站主要内容、全部指南与全部政策文章的纯文本全文。
+
+## 实用指南
+- [美国代孕完整流程：从咨询到宝宝出生](https://www.surrogacybutler.com/guides/us-surrogacy-process/): 按顺序梳理美国妊娠载体（代孕）旅程的主要环节：方案与预算、生殖诊所与胚胎准备、代母匹配与评估、法律合同与资金托管、移植与孕期、出生与亲权手续，以及每个环节通常由谁负责、大致需要多久。（最近更新：2026-11-01）
+- [美国代孕费用构成：一笔账由哪些部分组成](https://www.surrogacybutler.com/guides/us-surrogacy-costs/): 拆解美国代孕的主要费用类别——机构与匹配、代母补偿与报销、法律、试管医疗、保险、资金托管与杂项——说明每一类的常见区间、差异来源，以及做预算时最容易漏算的部分。（最近更新：2026-11-01）
+- [美国各州代孕法律格局：为什么选州如此重要](https://www.surrogacybutler.com/guides/us-state-surrogacy-laws/): 美国没有联邦统一的代孕法：各州在成文法、亲权程序与补偿规则上差异巨大。本页按法律环境类型梳理各州格局，说明出生前亲权令、可执行性与常见限制，并标注近年发生变化的州。（最近更新：2026-11-01）
+- [跨境家庭指南：宝宝出生后的证件与回国衔接](https://www.surrogacybutler.com/guides/cross-border-families-guide/): 面向居住在美国以外、赴美完成代孕旅程的家庭：宝宝的公民身份与出生证明、社会安全号码、美国护照、中国旅行证与签证的区别、回国后的户口与国籍冲突问题，以及行前应预留的时间与材料清单。（最近更新：2026-11-01）
+- [LGBTQ+ 与单身准父母的美国代孕路径](https://www.surrogacybutler.com/guides/lgbtq-and-single-parents/): 同性伴侣与单身准父母通过妊娠载体组建家庭的路径说明：配子与胚胎方案、亲权确立的州别差异、出生证明登记、跨境家庭的额外考量，以及选择支持性团队的要点。（最近更新：2026-11-01）
+- [如何选州、选团队：给准父母的评估框架](https://www.surrogacybutler.com/guides/choosing-state-and-team/): 把代孕旅程中最重要的几个早期决定拆成可核对的评估框架：选州看什么、诊所与机构如何尽调、律师与托管账户为什么必须独立、保险如何核查，以及签约前应问清的问题清单。（最近更新：2026-11-01）
 
 ## 政策文章（报道与政策更新）
 - [新泽西州新提案 A5589：拟为妊娠载体出生子女确立亲权推定](https://www.surrogacybutler.com/news/new-jersey-a5589-parentage-presumption/): 说明 2026 年 10 月提出的新泽西州 A5589 法案拟确立的亲权推定、实验室差错情形规则与提案状态。（适用地区：美国；新泽西州；状态：提案或讨论中；本站整理：2026-11-01）
