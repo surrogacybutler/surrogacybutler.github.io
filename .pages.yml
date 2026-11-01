@@ -151,3 +151,67 @@ content:
         options:
           format: markdown
           media: false
+  - name: guides
+    label: 实用指南
+    type: collection
+    path: src/content/guides
+    format: yaml-frontmatter
+    filename: "{fields.slug}.md"
+    view:
+      primary: title
+      fields: [title, updatedDate, published]
+    fields:
+      - name: slug
+        label: 文章固定链接（英文）
+        type: string
+        required: true
+        pattern: "^[a-z0-9-]+$"
+      - name: title
+        label: 标题
+        type: string
+        required: true
+      - name: description
+        label: 列表摘要
+        type: text
+        required: true
+      - name: seoTitle
+        label: SEO 标题（可选）
+        type: string
+      - name: seoDescription
+        label: SEO 摘要（可选）
+        type: text
+      - name: updatedDate
+        label: 最近更新日期
+        type: date
+        required: true
+      - name: order
+        label: 排序
+        type: number
+      - name: faqs
+        label: 常见问题
+        type: object
+        list: true
+        fields:
+          - name: q
+            label: 问题
+            type: string
+            required: true
+          - name: a
+            label: 回答
+            type: text
+            required: true
+      - name: relatedNews
+        label: 相关新闻 slug
+        type: string
+        list: true
+      - name: published
+        label: 发布
+        type: boolean
+        required: true
+      - name: body
+        label: 正文
+        type: rich-text
+        required: true
+        options:
+          format: markdown
+          media: false
