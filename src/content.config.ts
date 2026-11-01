@@ -31,4 +31,23 @@ const news = defineCollection({
   }),
 });
 
-export const collections = { news };
+const guides = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/guides' }),
+  schema: z.object({
+    slug: z.string().regex(/^[a-z0-9-]+$/),
+    title: z.string(),
+    description: z.string(),
+    seoTitle: z.string().optional(),
+    seoDescription: z.string().optional(),
+    updatedDate: z.coerce.date(),
+    order: z.number().default(99),
+    faqs: z.array(z.object({
+      q: z.string(),
+      a: z.string(),
+    })).default([]),
+    relatedNews: z.array(z.string()).default([]),
+    published: z.boolean().default(false),
+  }),
+});
+
+export const collections = { news, guides };
