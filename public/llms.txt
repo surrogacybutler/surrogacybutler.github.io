@@ -8,6 +8,20 @@
 - [资料来源与更新原则](https://www.surrogacybutler.com/editorial-policy/): 来源核对、日期与更正方式。
 - [隐私声明](https://www.surrogacybutler.com/privacy.html): 网站与外部咨询服务的数据说明。
 - [咨询入口](https://www.surrogacybutler.com/consult.html): 外部咨询应用。
+- [RSS 订阅](https://www.surrogacybutler.com/feed.xml): 报道与政策更新的 RSS feed。
+- [全文版（llms-full.txt）](https://www.surrogacybutler.com/llms-full.txt): 本站主要内容与全部政策文章的纯文本全文。
+
+## 政策文章（报道与政策更新）
+- [新泽西州新提案 A5589：拟为妊娠载体出生子女确立亲权推定](https://www.surrogacybutler.com/news/new-jersey-a5589-parentage-presumption/): 说明 2026 年 10 月提出的新泽西州 A5589 法案拟确立的亲权推定、实验室差错情形规则与提案状态。（适用地区：美国；新泽西州；状态：提案或讨论中；本站整理：2026-11-01）
+- [纽约州法案拟以“妊娠父母”取代亲权法中的“母亲/父亲”表述](https://www.surrogacybutler.com/news/new-york-gestating-parent-bill/): 说明纽约州 S9316 / A8382A 法案的通过进度、术语调整内容与待州长决定的状态。（适用地区：美国；纽约州；状态：提案或讨论中；本站整理：2026-11-01）
+- [新行政令点名商业代孕：联邦机构被要求不向部分在美出生儿童签发公民身份文件](https://www.surrogacybutler.com/news/us-executive-order-14418-surrogacy-citizenship/): 整理 2026 年 8 月第 14418 号行政令对商业代孕情形的规定、9 月马里兰州法院初步禁令的范围与边界，以及对跨境家庭证件办理的实际影响。（适用地区：美国（联邦）；状态：已生效；本站整理：2026-11-01）
+- [ASRM 更新国际准父母排除性法律动态：佛州法律已于 2026 年 7 月生效](https://www.surrogacybutler.com/news/florida-foreign-ip-laws/): 汇总 ASRM 2026 年政策资料中关于佛州 HB 905 和国际准父母排除性法律的内容，并说明政策资料与个案法律意见的区别。（适用地区：美国；佛罗里达州及其他州级立法动态；状态：专业组织分析；本站整理：2026-10-18）
+- [新泽西州法案拟要求妊娠载体协议各方先在州内合法居住满 12 个月](https://www.surrogacybutler.com/news/new-jersey-gc-residency-bills/): 依据 ASRM 2026 年政策简报，说明新泽西州拟对妊娠载体协议增加的 12 个月居住要求、适用对象与当前立法进度。（适用地区：美国；新泽西州；状态：提案或讨论中；本站整理：2026-10-18）
+- [美国最高法院裁定出生公民权行政令违宪：在美出生儿童仍为公民（Trump v. Barbara）](https://www.surrogacybutler.com/news/trump-v-barbara-birthright-citizenship/): 整理 2026 年 6 月 30 日美国最高法院 Trump v. Barbara 裁定的结论、票数结构与理由，以及它对跨境家庭的实际意义与不适用范围。（适用地区：美国（联邦）；状态：已生效；本站整理：2026-10-18）
+- [美国国会两项新法案拟限制涉及外国准父母的商业代孕安排](https://www.surrogacybutler.com/news/us-federal-foreign-ip-surrogacy-bills/): 依据 ASRM 2026 年 7 月政策简报，整理两项美国联邦法案对涉及外国准父母的代孕协议拟设的限制、例外与罚则，并说明其立法状态。（适用地区：美国（联邦）；状态：提案或讨论中；本站整理：2026-10-18）
+- [德州跨州妊娠载体争议进入法院程序：一则个案报道的阅读边界](https://www.surrogacybutler.com/news/texas-surrogacy-court-dispute/): 解释 AP 2026 年德州妊娠载体争议报道所涉及的跨州法律问题，并说明个案报道的适用边界。（适用地区：德克萨斯州与加利福尼亚州（个案）；状态：个案报道；本站整理：2026-08-25）
+- [德州议员讨论限制外国准父母使用德州妊娠载体](https://www.surrogacybutler.com/news/texas-foreign-intended-parents-debate/): 根据 2026 年 7 月 The Texas Tribune 报道，整理德州关于外国准父母使用妊娠载体的政策讨论，并区分讨论与已生效法律。（适用地区：德克萨斯州；状态：提案或讨论中；本站整理：2026-07-07）
+- [ASRM 发布美国妊娠载体政策综述：州法、知情同意与独立法律支持](https://www.surrogacybutler.com/news/asrm-gestational-carrier-policy/): 根据 ASRM 2026 年公告，说明美国妊娠载体政策综述覆盖的主题，以及它与州法和个案法律意见的区别。（适用地区：美国；州法框架；状态：专业组织分析；本站整理：2026-02-18）
 
 ## 内容边界
 本站内容仅作一般信息与经验分享，不构成医疗、法律、保险或财务建议。美国妊娠载体规则因州而异，新闻报道、提案、专业组织建议和已生效法规具有不同法律状态。具体问题应向相应领域的合格专业人员及政府机构核实。美宝管家不是医疗机构、律师事务所或代孕代理机构。
